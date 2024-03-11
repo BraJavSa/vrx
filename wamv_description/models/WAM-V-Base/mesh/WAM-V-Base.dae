@@ -20912,6 +20912,11 @@
       </mesh>
     </geometry>
   </library_geometries>
+  <library_materials>
+  <material id="material_verde" name="material_verde">
+    <instance_effect url="#material_verde_effect"/>
+  </material>
+</library_materials>
   <library_visual_scenes>
     <visual_scene id="WAM-V-Base" name="WAM-V-Base">
       <node name="WamV" id="WamV" sid="WamV">
