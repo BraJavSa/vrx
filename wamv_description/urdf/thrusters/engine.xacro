@@ -5,21 +5,9 @@
     <link name="${namespace}/${prefix}_engine_link">
       <visual>
         <geometry>
-          <mesh filename="package://wamv_description/models/engine/mesh/engine.dae"/>
+          <mesh filename="package://wamv_description/models/engine/mesh/engine.dae" scale="0.35 0.35 0.35"/>
         </geometry>
       </visual>
-      <collision name="${prefix}_engine_vertical_axis_collision">
-        <origin xyz="-0.16 0 -0.24" rpy="0 0 0" />
-        <geometry>
-          <box size="0.2 0.15 0.83" />
-        </geometry>
-      </collision>
-      <collision name="${prefix}_engine_rear_end_collision">
-        <origin xyz="-0.34 0 0.12" rpy="0 0 0" />
-        <geometry>
-          <box size="0.12 0.15 0.12" />
-        </geometry>
-      </collision>
       <inertial>
         <mass value="15"/>
         <inertia ixx="0.889245" ixy="0.0" ixz="0.0" iyy="0.911125" iyz="0.0" izz="0.078125"/>
@@ -29,13 +17,13 @@
     <link name="${namespace}/${prefix}_propeller_link">
       <visual>
         <geometry>
-          <mesh filename="package://wamv_description/models/propeller/mesh/propeller.dae"/>
+          <mesh filename="package://wamv_description/models/propeller/mesh/propeller.dae" scale="0.35 0.35 0.35"/>
         </geometry>
       </visual>
       <collision name="${prefix}_propeller_collision">
         <origin xyz="-0.08 0 0" rpy="0 1.57 0" />
         <geometry>
-          <cylinder length="0.18" radius="0.24" />
+          <cylinder length="0.1" radius="0.08" />
         </geometry>
       </collision>
       <inertial>

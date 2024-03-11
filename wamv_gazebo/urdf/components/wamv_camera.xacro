@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
-  <xacro:macro name="wamv_camera" params="name x:=0.5 y:=0 z:=1.5 post_z_from:=1.2965 R:=0 P:=0 Y:=0 post_Y:=0 visualize:=False">
+  <xacro:macro name="wamv_camera" params="name x:=10 y:=10 z:=0.8 post_z_from:=0.1 R:=0 P:=0 Y:=0 post_Y:=0 visualize:=false">
     <!-- Define length variables for link positioning -->
     <xacro:property name="platform_z" value="${post_z_from}"/>
     <xacro:property name="post_to_post_arm_x" value="0.03"/>
@@ -81,19 +81,19 @@
     <!-- Sensor post arm -->
     <link name="${namespace}/${name}_post_arm_link">
       <visual name="${name}_post_arm_visual">
-        <origin xyz="-0.038 0 -0.003" rpy="${radians(-60)} 0 ${-pi/2}"/>
+        <origin xyz="-0.038 0 -0.003" rpy="${radians(-40)} 0 ${-pi/2}"/>
         <geometry>
           <mesh filename="package://vrx_gazebo/models/sensor_post/mesh/sensor_post_arm.dae"/>
         </geometry>
       </visual>
       <collision name="${name}_post_arm_collision">
-        <origin xyz="0 0 0" rpy="${radians(-60)-pi/20} 0 ${-pi/2}"/>
+        <origin xyz="0 0 0" rpy="${radians(-40)-pi/20} 0 ${-pi/2}"/>
         <geometry>
           <cylinder radius="0.008" length="0.065"/>
         </geometry>
       </collision>
       <inertial>
-        <origin xyz="0 0 0" rpy="${radians(-60)-pi/20} 0 ${-pi/2}"/>
+        <origin xyz="0 0 0" rpy="${radians(-40)-pi/20} 0 ${-pi/2}"/>
         <mass value="0.1"/>
         <inertia
           ixx="0.00003680833"

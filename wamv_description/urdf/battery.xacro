@@ -3,7 +3,7 @@
   <xacro:macro name="battery" params="prefix position:='0 0 0' orientation:='0 0 0'">
     <link name="${namespace}/${prefix}_battery_link">
       <visual name="${prefix}_battery_visual">
-        <origin xyz="0 -1.03 -.45" rpy="0 0 0"/>
+        <origin xyz="0 -0.5 -.45" rpy="0 0 0"/>
         <geometry>
           <mesh filename="package://vrx_gazebo/models/battery/mesh/battery.dae"/>
         </geometry>
