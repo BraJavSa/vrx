@@ -74,7 +74,15 @@
         args="-x $(arg x) -y $(arg y) -z $(arg z)
               -R $(arg R) -P $(arg P) -Y $(arg Y)
               --urdf $(arg urdf) --model wamv"/>
+              
+    <node name="joy_node" pkg="joy" type="joy_node" output="screen"/>
+    <node name="update_vel" pkg="usv_sim" type="update_vel.py" output="screen"/>
+    <node name="joy_control" pkg="usv_sim" type="joy_control.py" output="screen"/>
+    <node name="twist2thrust" pkg="usv_sim" type="twist2thrust.py" output="screen"/>
 
+
+      <node name="spawn_iris_model" pkg="gazebo_ros" type="spawn_model" args="-sdf -file $(find px4)/Tools/simulation/gazebo-classic/sitl_gazebo-classic//models/iris_fpv_cam/iris_fpv_cam.sdf -model iris -x 169 -y 114 -z 0.6 -R 0 -P 0 -Y 3.44" output="screen"/>
+      <include file="$(find px4)/launch/px4.launch"/>
 
 </launch>
 

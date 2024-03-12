@@ -74,7 +74,10 @@
         args="-x $(arg x) -y $(arg y) -z $(arg z)
               -R $(arg R) -P $(arg P) -Y $(arg Y)
               --urdf $(arg urdf) --model wamv"/>
-
-
+    <node name="joy_node" pkg="joy" type="joy_node" output="screen"/>
+    <node name="update_vel" pkg="usv_sim" type="update_vel.py" output="screen"/>
+    <node name="joy_control" pkg="usv_sim" type="joy_control.py" output="screen"/>
+    <node name="twist2thrust" pkg="usv_sim" type="twist2thrust.py" output="screen"/>
+    
 </launch>
 

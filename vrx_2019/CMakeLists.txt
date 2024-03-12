@@ -13,7 +13,7 @@ find_package(catkin REQUIRED COMPONENTS
   xacro
 )
 catkin_package(
-  CATKIN_DEPENDS vrx_gazebo wamv_gazebo xacro
+  CATKIN_DEPENDS vrx_gazebo wamv_gazebo xacro 
 )
 
 set(XACRO_INORDER)
