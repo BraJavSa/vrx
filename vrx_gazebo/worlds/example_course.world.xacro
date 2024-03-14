@@ -26,6 +26,11 @@
       <pose>-511 218 0.25 0 0 3.14</pose>
     </include>
 
+    <include>
+      <uri>model://helipuerto</uri>
+      <pose> 169 116 0.6 0 0 3.14</pose>
+    </include>
+
     <!-- The 2022 dock with the placards -->
     <include>
       <uri>model://dock_2022</uri>

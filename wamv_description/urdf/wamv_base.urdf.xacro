@@ -47,11 +47,12 @@
         <box size="1.4 1.4 0.03" />
       </geometry>
     </collision>
-     <visual>
+     <visual name="visual">
       <origin xyz="-0.8 0 0.6" rpy="0 0 0" />
       <geometry>
             <box size="1.4 1.4 0.03" />
         </geometry>
+       
     </visual>
 
 

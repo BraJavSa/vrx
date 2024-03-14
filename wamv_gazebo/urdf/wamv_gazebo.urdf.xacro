@@ -39,6 +39,8 @@
   <xacro:include filename="$(find wamv_gazebo)/urdf/wamv_gazebo.xacro"/>
   
   <!-- === Batteries === -->
+  
+  
   <xacro:include filename="$(find wamv_description)/urdf/battery.xacro"/>
   <xacro:battery prefix="left" position="0.3 0 0.15" orientation="0 0 1.5708"/>
   <xacro:battery prefix="right" position="-0.3 0 0.15" orientation="0 0 1.5708"/>
@@ -112,7 +114,7 @@
   <xacro:unless value="$(arg yaml_component_generation)">
     <!-- Add a front camera -->
     <xacro:if value="$(arg camera_enabled)">
-      <xacro:wamv_camera name="front_camera" y="0" x="0" P="${radians(15)}" />
+      <xacro:wamv_camera name="front_camera" y="0" x="0.5" P="${radians(1)}" />
     </xacro:if>
     
     <!-- Add simulated GPS -->
