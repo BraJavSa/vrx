@@ -20,3 +20,17 @@ install(DIRECTORY models/
 
 install(DIRECTORY urdf/
   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/urdf)
+
+find_package(gazebo REQUIRED)
+
+find_package(catkin REQUIRED COMPONENTS
+  gazebo_dev
+  geographic_msgs
+  message_generation
+  roscpp
+  rospy
+  std_msgs
+  wamv_gazebo
+  wave_gazebo
+  xacro
+)

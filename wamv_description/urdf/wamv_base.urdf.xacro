@@ -4,7 +4,9 @@
   <xacro:arg name="namespace" default="wamv"/>  
   <xacro:property name="namespace" value="$(arg namespace)" scope="global" /> 
   <!-- Macro for creating the main collisions as simple shapes. -->
+    
   <xacro:macro name="main_collisions" params="prefix reflect:=1">
+
 
     <!-- Joint -->
     <collision name="${prefix}_joint">
@@ -41,20 +43,32 @@
       </geometry>
     </collision>
 
-    <collision name="top_base">
-      <origin xyz="-0.8 0 0.6" rpy="0 0 0" />
+
+     <visual>
+      <origin xyz="-0.5 0 0.6" rpy="0 0 0" />
       <geometry>
-        <box size="1.4 1.4 0.03" />
+        <mesh filename="package://wamv_description/models/WAM-V-Base/mesh/base.dae" scale="0.01 0.01 0.1"/>
+      </geometry>
+    </visual>
+         <collision name="top_base">
+      <origin xyz="-0.5 0 0.6" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://wamv_description/models/WAM-V-Base/mesh/base.dae" scale="0.01 0.01 0.1"/>
       </geometry>
     </collision>
-     <visual name="visual">
-      <origin xyz="-0.8 0 0.6" rpy="0 0 0" />
+    <visual>
+      <origin xyz="-0.55 0.05 0.6001" rpy="0 0 -1.57" />
       <geometry>
-            <box size="1.4 1.4 0.03" />
-        </geometry>
-       
+        <mesh filename="package://wamv_description/models/WAM-V-Base/mesh/heli.dae" scale="0.009 0.009 0.1"/>
+      </geometry>
     </visual>
 
+    <!--visual>
+      <origin xyz="-0.55 0 0.601" rpy="0 0 -1.57" />
+      <geometry>
+        <mesh filename="package://wamv_description/models/WAM-V-Base/mesh/panel.dae" scale="0.009 0.009 0.1"/>
+      </geometry>
+    </visual-->
 
     <inertial>
       <mass value="20.0"/>
