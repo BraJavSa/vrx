@@ -83,7 +83,7 @@
        <node name="update_vel" pkg="usv_sim" type="update_vel.py" output="screen"/>
     <node name="joy_control" pkg="usv_sim" type="joy_control.py" output="screen"/>
         <node name="joy_control_hector" pkg="usv_sim" type="joy_control_hector.py" output="screen"/>
-
+  <node pkg="hector_pose_estimation" type="pose_estimation" name="hector_pose_estimation" />
 
 </launch>
 
