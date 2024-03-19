@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
-  <xacro:macro name="wamv_multibeam_laser" params="name x:=0.5 y:=0 z:=2 R:=0 P:=0 Y:=0">
+  <xacro:macro name="wamv_multibeam_laser" params="name x:=0.0 y:=0 z:=-0.2 R:=0 P:=1.5 Y:=0">
     <link name="${namespace}/${name}_link">
-      <visual name="${name}_visual">>
+      <visual name="${name}_visual">
         <geometry>
           <cylinder radius="0.025" length="0.1" />
         </geometry>
@@ -37,9 +37,14 @@
             <resolution>0.02</resolution>
           </range>
         </ray>
-        <plugin name="multibeam_simulator" filename="libgazebo_ros_gpu_laser.so">
+        <!--plugin name="multibeam_simulator" filename="libgazebo_ros_gpu_laser.so">
           <topicName>${namespace}/${sensor_namespace}lidars/${name}/scan</topicName>
           <frameName>${namespace}/${name}_link</frameName>
+        </plugin-->
+        <plugin name="${name}_plugin" filename="libgazebo_ros_velodyne_gpu_laser.so">
+          <topicName>${namespace}/${sensor_namespace}sublidars/${name}/points</topicName>
+          <frameName>${namespace}/${name}_link</frameName>
+          <min_intensity>0</min_intensity>
         </plugin>
       </sensor>
     </gazebo>

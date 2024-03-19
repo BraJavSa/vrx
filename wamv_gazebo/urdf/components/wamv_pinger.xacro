@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
-  <xacro:macro name="wamv_pinger" params="name:='pinger' frameId:='wamv/pinger' position:='0 0 0' orientation:='0 0 0'">
+  <xacro:macro name="wamv_pinger" params="name:='pinger' frameId:='wamv/pinger' position:='0 0 0' orientation:='0 1.5 0'">
     <link name="${namespace}/${name}">
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />

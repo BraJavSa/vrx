@@ -21,13 +21,13 @@
     max_range: maximum distance for an object to be detected by laser
     noise_stddev: Standard deviation of gaussian noise applied to output pointcloud
   -->
-  <xacro:macro name="wamv_3d_lidar" params="name
+  <xacro:macro name="wamv_sub_lidar" params="name
                                             x:=0.7 y:=0 z:=1.8
                                             R:=0 P:=0 Y:=0
                                             post_Y:=0 post_z_from:=1.2965
                                             update_rate:=10 vertical_lasers:=16 samples:=1875 resolution:=0.1
-                                            min_angle:=${-3*pi/4} max_angle:=${3*pi/4}
-                                            min_vertical_angle:=${-pi/12} max_vertical_angle:=${pi/12}
+                                            min_angle:=${0} max_angle:=${0.1}
+                                            min_vertical_angle:=${-pi/2} max_vertical_angle:=${-pi/2}
                                             max_range:=200 noise_stddev:=0.001">
     <!-- Define length variables for link positioning -->
     <xacro:property name="platform_z" value="${post_z_from}"/>
@@ -144,38 +144,36 @@
     </joint>
 
     <gazebo reference="${namespace}/${name}_link">
-      <sensor type="gpu_ray" name="${name}_sensor">
-        <update_rate>${update_rate}</update_rate>
+           <sensor name="laser" type="ray">
+        <pose>0 0 0 0 1.57079633 0</pose>
         <ray>
           <scan>
             <horizontal>
-              <samples>${samples/resolution}</samples>
-              <resolution>${resolution}</resolution>
-              <min_angle>${min_angle}</min_angle>
-              <max_angle>${max_angle}</max_angle>
-            </horizontal>
-            <vertical>
-              <samples>${vertical_lasers}</samples>
+              <samples>1</samples>
               <resolution>1</resolution>
-              <min_angle>${min_vertical_angle}</min_angle>
-              <max_angle>${max_vertical_angle}</max_angle>
-            </vertical>
+              <min_angle>-0</min_angle>
+              <max_angle>0</max_angle>
+            </horizontal>
           </scan>
           <range>
-            <min>0.1</min>
-            <max>${max_range}</max>
+            <min>0.06</min> <!-- do not change: use min_distance (below) for realistic behavior (smaller values cause issues) -->
+            <max>100</max>   <!-- do not change: use min_distance (below) for realistic behavior (bigger values cause issues) -->
+            <resolution>0.01</resolution>
           </range>
           <noise>
             <type>gaussian</type>
             <mean>0.0</mean>
-            <stddev>${noise_stddev}</stddev>
+            <stddev>0.02</stddev>
           </noise>
         </ray>
-        <plugin name="${name}_plugin" filename="libgazebo_ros_velodyne_gpu_laser.so">
-          <topicName>${namespace}/${sensor_namespace}lidars/${name}/points</topicName>
-          <frameName>${namespace}/${name}_link</frameName>
-          <min_intensity>0</min_intensity>
+          <plugin name="lidar_node" filename="libgazebo_ros_laser.so">
+          <robotNamespace></robotNamespace>
+          <topicName>/laser/scan</topicName>
+          <frameName>/lidar_sensor_link</frameName>
         </plugin>
+         <always_on>1</always_on>
+        <update_rate>1</update_rate>
+        <visualize>true</visualize>
       </sensor>
     </gazebo>
 

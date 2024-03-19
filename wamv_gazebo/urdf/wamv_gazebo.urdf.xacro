@@ -112,7 +112,7 @@
   <xacro:unless value="$(arg yaml_component_generation)">
     <!-- Add a front camera -->
     <xacro:if value="$(arg camera_enabled)">
-      <xacro:wamv_camera name="front_camera" y="0" x="0.5" P="${radians(1)}" />
+      <xacro:wamv_camera name="front_camera" y="0" x="0.8" P="${radians(1)}" />
     </xacro:if>
     
     <!-- Add simulated GPS -->
@@ -127,9 +127,12 @@
     
     <!-- Add 3D LIDAR -->
     <xacro:if value="$(arg lidar_enabled)">
-      <xacro:lidar name="lidar_wamv" y="-0.3" type="16_beam"/>
+      <xacro:lidar name="lidar_wamv" y="-0.0" type="16_beam"/>
+      <xacro:sublidar name="sublidar_wamv" y="-0.0" type="16_beam"/>
+
     </xacro:if>
     
+
     <!-- Add P3D ground truth -->
     <xacro:if value="$(arg ground_truth_enabled)">
       <xacro:wamv_p3d name="p3d_wamv"/>
@@ -137,7 +140,7 @@
 
     <!-- Add pinger -->
     <xacro:if value="$(arg pinger_enabled)">
-      <xacro:wamv_pinger name="pinger" position="1.0 0 -1.0" />
+      <xacro:wamv_pinger name="pinger" position="0.0 0 -0.2" />
     </xacro:if>
 
     <!-- Add ball shooter (default pitch angle: ~-60 deg) -->
@@ -167,6 +170,9 @@
     
       <!-- Add 3D LIDAR -->
       <xacro:lidar name="lidar_wamv" type="16_beam"/>
+      <xacro:sublidar name="sublidar" type="16_beam"/>
+
+
 
       <!-- Add pinger -->
       <xacro:wamv_pinger name="pinger" position="1.0 0 -1.0" />

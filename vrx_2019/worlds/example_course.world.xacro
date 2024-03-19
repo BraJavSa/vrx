@@ -20,7 +20,12 @@
         <wind_obj>
           <name>wamv</name>
           <link_name>wamv/base_link</link_name>
-          <coeff_vector>0.5 0.5 .01</coeff_vector>
+          <coeff_vector>0.2 0.2 .01</coeff_vector>
+        </wind_obj>
+                <wind_obj>
+          <name>quadrotor</name>
+          <link_name>base_link</link_name>
+          <coeff_vector>0.05 0.05 .01</coeff_vector>
         </wind_obj>
       </wind_objs>
     </xacro:usv_wind_gazebo>
