@@ -79,10 +79,9 @@
     <node name="update_vel" pkg="usv_sim" type="update_vel.py" output="screen"/>
     <node name="joy_control" pkg="usv_sim" type="joy_control.py" output="screen"/>
     <node name="twist2thrust" pkg="usv_sim" type="twist2thrust.py" output="screen"/>
-
- 
-      <node name="spawn_iris_model" pkg="gazebo_ros" type="spawn_model" args="-sdf -file $(find px4)/Tools/simulation/gazebo-classic/sitl_gazebo-classic//models/iris_fpv_cam/iris_fpv_cam.sdf -model iris -x 167.95 -y 114.02 -z 0.8 -R 0 -P 0 -Y 3.44" output="screen"/>
-      <include file="$(find px4)/launch/px4.launch"/>
+    <node name="world2body" pkg="usv_sim" type="world2body.py" output="screen"/>
+    <node name="spawn_iris_model" pkg="gazebo_ros" type="spawn_model" args="-sdf -file $(find px4)/Tools/simulation/gazebo-classic/sitl_gazebo-classic//models/iris_fpv_cam/iris_fpv_cam.sdf -model iris -x 167.95 -y 114.02 -z 0.8 -R 0 -P 0 -Y 3.44" output="screen"/>
+    <include file="$(find px4)/launch/px4.launch"/>
 
 </launch>
 

@@ -74,6 +74,8 @@
         args="-x $(arg x) -y $(arg y) -z $(arg z)
               -R $(arg R) -P $(arg P) -Y $(arg Y)
               --urdf $(arg urdf) --model wamv"/>
+      <node name="world2body" pkg="usv_sim" type="world2body.py" output="screen"/>
+
 
 
 </launch>
