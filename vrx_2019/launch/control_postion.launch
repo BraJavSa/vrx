@@ -15,12 +15,12 @@
   <arg name="namespace" default="wamv"/>
 
   <!-- Initial USV location and attitude-->
-  <arg name="x" default="158" />
-  <arg name="y" default="108" />
+  <arg name="x" default="0" />
+  <arg name="y" default="0" />
   <arg name="z" default="0.1" />
   <arg name="P" default="0" />
   <arg name="R" default="0" />
-  <arg name="Y" default="-2.76" />
+  <arg name="Y" default="0" />
 
   <!-- If true, show non-competition ROS topics (/gazebo/model_states, /vrx/debug/wind/direction, etc.)-->
   <arg name="non_competition_mode" default="true"/>
@@ -77,8 +77,8 @@
       
     <node name="world2body" pkg="usv_sim" type="world2body.py" output="screen"/>
     <node name="update_vel" pkg="usv_sim" type="update_vel.py" output="screen"/>
+    <node name="update_pose" pkg="usv_sim" type="update_pose.py" output="screen"/>
     <node name="twist2thrust" pkg="usv_sim" type="twist2thrust.py" output="screen"/>
-    <node name="control" pkg="usv_sim" type="polar_position_control.py" output="screen"/>
     <node name="plot_var" pkg="usv_sim" type="Graf.py" output="screen"/>
     
 </launch>

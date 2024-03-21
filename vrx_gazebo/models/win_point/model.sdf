@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 <sdf version="1.6">
-  <model name="red_totem">
+  <model name="win_point">
     <link name="link">
       <inertial>
         <pose>0 0 -2 0 0 0</pose>
@@ -17,24 +17,6 @@
           <izz>0.1</izz>
         </inertia>
       </inertial>
-      <collision name="collision_inner">
-        <pose>0 0 0.367 0 0 0</pose>
-        <geometry>
-          <cylinder>
-            <radius>0.13</radius>
-            <length>1.25</length>
-          </cylinder>
-        </geometry>
-      </collision>
-      <collision name="collision_outer">
-        <pose>0 0 -0.075 0 0 0</pose>
-        <geometry>
-          <cylinder>
-            <radius>0.23</radius>
-            <length>0.16</length>
-          </cylinder>
-        </geometry>
-      </collision>
       <visual name="visual">
         <geometry>
           <mesh><uri>model://surmark46104/mesh/surmark46104.dae</uri></mesh>
@@ -57,7 +39,7 @@
         <material>
           <script>
             <uri>file://media/materials/scripts/gazebo.material</uri>
-            <name>Gazebo/Red</name>
+            <name>Gazebo/Yellow</name>
           </script>
         </material>
       </visual>
