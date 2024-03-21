@@ -80,6 +80,9 @@
     <node name="update_pose" pkg="usv_sim" type="update_pose.py" output="screen"/>
     <node name="twist2thrust" pkg="usv_sim" type="twist2thrust.py" output="screen"/>
     <node name="plot_var" pkg="usv_sim" type="Graf.py" output="screen"/>
+    <node name="control_position" pkg="usv_sim" type="polar_position_control.py" output="screen"/>
+
+
     
 </launch>
 
