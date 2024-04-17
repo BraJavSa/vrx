@@ -30,7 +30,6 @@ find_package(catkin REQUIRED COMPONENTS
   roscpp
   rospy
   std_msgs
-  wamv_gazebo
   wave_gazebo
   xacro
 )
