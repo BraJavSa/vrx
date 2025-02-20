@@ -13,8 +13,9 @@
       <!-- Optional Parameters -->
       <mappingType>1</mappingType>
       <maxCmd>1.0</maxCmd>
-      <maxForceFwd>100.0</maxForceFwd>
-      <maxForceRev>-100.0</maxForceRev>
+      <maxForceFwd>80.0</maxForceFwd>
+      <maxForceRev>-60.0</maxForceRev>
+      <!-- modifica fuerza propulsor-->
       <maxAngle>${pi/2}</maxAngle>
     </thruster>
   </xacro:macro>
