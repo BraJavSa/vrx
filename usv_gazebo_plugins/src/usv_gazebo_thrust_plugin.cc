@@ -327,6 +327,7 @@ double UsvThrust::GlfThrustCmd(const double _cmd,
                                const double _maxNeg) const
 {
   double val = 0.0;
+  
   if (_cmd > 0.01)
   {
     val = this->Glf(_cmd, 0.01f, 59.82f, 5.0f, 0.38f, 0.56f, 0.28f);
